@@ -44,7 +44,7 @@ import java.util.Objects;
  *
  * @author Matthias Arzt
  */
-class DefaultCategoryChart<C> extends DefaultAbstractPlot implements CategoryChart<C> {
+class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart<C> {
 
 	private final Class<C> categoryType;
 

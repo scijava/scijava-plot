@@ -43,7 +43,7 @@ import java.util.List;
  *
  * @author Matthias Arzt
  */
-class DefaultXYPlot extends DefaultAbstractPlot implements XYPlot {
+class DefaultXYPlot extends AbstractPlot implements XYPlot {
 
 	private final DefaultNumberAxis xAxis;
 

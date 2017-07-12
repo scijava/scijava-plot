@@ -41,7 +41,7 @@ import java.util.Objects;
  * @author Matthias Arzt
  */
 
-abstract class DefaultAbstractPlot implements Plot {
+abstract class AbstractPlot implements Plot {
 
 	private String title;
 
@@ -49,7 +49,7 @@ abstract class DefaultAbstractPlot implements Plot {
 
 	private int preferredHeight;
 
-	DefaultAbstractPlot() {
+	AbstractPlot() {
 		title = "";
 		preferredWidth = 600;
 		preferredHeight = 400;
