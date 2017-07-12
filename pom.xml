@@ -18,7 +18,7 @@
 
 	<name>ImageJ-Plot-Service</name>
 	<description>A service for displaying plots in ImageJ.</description>
-	<url>https://github.com/imagej/imagej-plot-service</url>
+	<url>https://github.com/maarzt/imagej-plot-service</url>
 	<inceptionYear>2017</inceptionYear>
 	<organization>
 		<name>ImageJ</name>
@@ -74,18 +74,20 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/imagej/imagej-plot-service</connection>
-		<developerConnection>scm:git:git@github.com:imagej/imagej-plot-service</developerConnection>
+		<connection>scm:git:git://github.com/maarzt/imagej-plot-service</connection>
+		<developerConnection>scm:git:git@github.com:maarzt/imagej-plot-service</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/imagej/imagej-plot-service</url>
+		<url>https://github.com/maarzt/imagej-plot-service</url>
 	</scm>
+
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/imagej/imagej-plot-service/issues</url>
+		<url>https://github.com/maarzt/imagej-plot-service/issues</url>
 	</issueManagement>
+
 	<ciManagement>
 		<system>Travis CI</system>
-		<url>https://travis-ci.org/imagej/imagej-plot-service</url>
+		<url>https://travis-ci.org/maarzt/imagej-plot-service</url>
 	</ciManagement>
 
 	<properties>
