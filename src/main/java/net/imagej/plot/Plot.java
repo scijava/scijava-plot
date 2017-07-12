@@ -36,7 +36,7 @@ package net.imagej.plot;
  *
  * @author Matthias Arzt
  */
-public interface AbstractPlot {
+public interface Plot {
 
 	void setTitle(String title);
 

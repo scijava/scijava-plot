@@ -30,11 +30,11 @@ public class PlotToSvgDemo {
 
 	private void run() throws IOException {
 		Path path = Paths.get(System.getProperty("user.home"), "chart.svg");
-		AbstractPlot plot = getExamplePlot();
+		Plot plot = getExamplePlot();
 		ioService.save(plot, path.toString());
 	}
 
-	private AbstractPlot getExamplePlot() {
+	private Plot getExamplePlot() {
 		XYPlot plot = plotService.newXYPlot();
 		plot.setTitle("Hello World!");
 		plot.xAxis().setLabel("x");

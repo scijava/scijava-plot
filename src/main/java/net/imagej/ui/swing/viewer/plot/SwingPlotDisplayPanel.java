@@ -31,7 +31,7 @@
 
 package net.imagej.ui.swing.viewer.plot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.scijava.convert.ConvertService;
@@ -42,7 +42,7 @@ import java.awt.*;
 import java.util.Objects;
 
 /**
- * A JFreeChart-driven display panel for {@link AbstractPlot}s.
+ * A JFreeChart-driven display panel for {@link Plot}s.
  * 
  * @author Curtis Rueden
  */
@@ -70,7 +70,7 @@ public class SwingPlotDisplayPanel extends JPanel implements PlotDisplayPanel {
 	}
 
 	private void initPreferredSize() {
-		AbstractPlot plot = display.get(0);
+		Plot plot = display.get(0);
 		prefferedSize = new Dimension(plot.getPreferredWidth(), plot.getPreferredHeight());
 	}
 
@@ -79,11 +79,11 @@ public class SwingPlotDisplayPanel extends JPanel implements PlotDisplayPanel {
 		add(new ChartPanel(chart));
 	}
 
-	private JFreeChart convertToJFreeChart(AbstractPlot plot) {
+	private JFreeChart convertToJFreeChart(Plot plot) {
 		return Objects.requireNonNull(convertService.convert(plot, JFreeChart.class));
 	}
 
-	public static boolean supports(AbstractPlot abstractPlot, ConvertService convertService) {
+	public static boolean supports(Plot abstractPlot, ConvertService convertService) {
 		return convertService.supports(abstractPlot, JFreeChart.class);
 	}
 

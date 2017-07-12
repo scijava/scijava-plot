@@ -32,7 +32,7 @@ public class ScatterPlotPlugin implements Command {
 	public MutableChoices<Column<Double>> yColumn;
 
 	@Parameter(label = "Scatter Plot", type = ItemIO.OUTPUT)
-	public AbstractPlot output;
+	public Plot output;
 
 	@Parameter
 	private PlotService plotService;

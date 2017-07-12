@@ -31,11 +31,12 @@
 
 package net.imagej.ui.swing.viewer.plot;
 
+import net.imagej.plot.Plot;
 import org.scijava.ui.viewer.DisplayPanel;
 
 /**
  * This is a panel that can go inside a display window. It displays
- * {@link net.imagej.plot.AbstractPlot}s.
+ * {@link Plot}s.
  * 
  * @author Curtis Rueden
  */

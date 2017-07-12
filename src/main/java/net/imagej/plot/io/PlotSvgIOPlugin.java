@@ -1,6 +1,6 @@
 package net.imagej.plot.io;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import org.jfree.chart.JFreeChart;
 import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
@@ -15,12 +15,12 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Plugin that can write {@link AbstractPlot} as SVG file.
+ * Plugin that can write {@link Plot} as SVG file.
  *
  * @author Matthias Arzt
  */
 @Plugin(type = IOPlugin.class)
-public class AbstractPlotSvgIOPlugin extends AbstractIOPlugin<AbstractPlot> {
+public class PlotSvgIOPlugin extends AbstractIOPlugin<Plot> {
 
 	@Parameter
 	ConvertService convertService;
@@ -38,17 +38,17 @@ public class AbstractPlotSvgIOPlugin extends AbstractIOPlugin<AbstractPlot> {
 	@Override
 	public boolean supportsSave(Object data, String destination) {
 		return supportsSave(destination) &&
-				data instanceof AbstractPlot &&
+				data instanceof Plot &&
 				convertService.supports(data, JFreeChart.class);
 	}
 
 	@Override
-	public AbstractPlot open(String source) throws IOException {
+	public Plot open(String source) throws IOException {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void save(AbstractPlot data, String destination) throws IOException {
+	public void save(Plot data, String destination) throws IOException {
 		if(!supportsSave(data, destination))
 			throw new IllegalArgumentException();
 		JFreeChart chart = convertService.convert(data, JFreeChart.class);
@@ -58,7 +58,7 @@ public class AbstractPlotSvgIOPlugin extends AbstractIOPlugin<AbstractPlot> {
 	}
 
 	@Override
-	public Class<AbstractPlot> getDataType() {
-		return AbstractPlot.class;
+	public Class<Plot> getDataType() {
+		return Plot.class;
 	}
 }

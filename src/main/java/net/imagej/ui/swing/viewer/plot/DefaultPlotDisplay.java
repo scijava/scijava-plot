@@ -31,21 +31,21 @@
 
 package net.imagej.ui.swing.viewer.plot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import org.scijava.display.AbstractDisplay;
 import org.scijava.display.Display;
 import org.scijava.plugin.Plugin;
 
 /**
- * Default display for {@link AbstractPlot}s.
+ * Default display for {@link Plot}s.
  *
  * @author Curtis Rueden
  */
 @Plugin(type = Display.class)
-public class DefaultPlotDisplay extends AbstractDisplay<AbstractPlot> implements
+public class DefaultPlotDisplay extends AbstractDisplay<Plot> implements
 		PlotDisplay
 {
 	public DefaultPlotDisplay() {
-		super(AbstractPlot.class);
+		super(Plot.class);
 	}
 }

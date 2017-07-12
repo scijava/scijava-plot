@@ -1,6 +1,6 @@
 package tableplugins;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import net.imagej.plot.BoxSeries;
 import net.imagej.plot.CategoryChart;
 import net.imagej.plot.PlotService;
@@ -32,7 +32,7 @@ public class BoxPlotPlugin implements Command {
 	public MutableChoices<Column<?>> keyColumn;
 
 	@Parameter(label = "Boxplot", type = ItemIO.OUTPUT)
-	public AbstractPlot output;
+	public Plot output;
 
 	@Parameter
 	private PlotService plotService;

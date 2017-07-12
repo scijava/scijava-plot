@@ -31,15 +31,15 @@
 
 package net.imagej.ui.swing.viewer.plot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import org.scijava.ui.viewer.DisplayViewer;
 
 /**
- * A display viewer for a display of {@link AbstractPlot}s.
+ * A display viewer for a display of {@link Plot}s.
  * 
  * @author Curtis Rueden
  */
-public interface PlotDisplayViewer extends DisplayViewer<AbstractPlot> {
+public interface PlotDisplayViewer extends DisplayViewer<Plot> {
 
 	@Override
 	PlotDisplay getDisplay();

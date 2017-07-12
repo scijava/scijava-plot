@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Demonstrates how to convert an {@link AbstractPlot} to {@link Img} and {@link ImagePlus}.
+ * Demonstrates how to convert an {@link Plot} to {@link Img} and {@link ImagePlus}.
  *
  * @author Matthias Arzt
  */

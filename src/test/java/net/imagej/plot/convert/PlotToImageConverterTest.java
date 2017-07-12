@@ -1,7 +1,7 @@
 package net.imagej.plot.convert;
 
 import ij.ImagePlus;
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import net.imagej.plot.CategoryChart;
 import net.imagej.plot.PlotService;
 import net.imglib2.img.Img;
@@ -40,13 +40,13 @@ public class PlotToImageConverterTest {
 	}
 
 	@Test
-	public void testWontConvertAbstractPlotToImagePlus() {
-		testWontConvertAbstractPlotTo(ImagePlus.class);
+	public void testWontConvertCustomPlotToImagePlus() {
+		testWontConvertCustomPlotTo(ImagePlus.class);
 	}
 
 	@Test
-	public void testWontConvertAbstractPlotToImg() {
-		testWontConvertAbstractPlotTo(Img.class);
+	public void testWontConvertCustomPlotToImg() {
+		testWontConvertCustomPlotTo(Img.class);
 	}
 
 	public void testCanConvertCategoryChartTo(Class<?> destClass) {
@@ -55,8 +55,8 @@ public class PlotToImageConverterTest {
 		assertTrue(convertService.supports(chart, (Type) destClass));
 	}
 
-	public void testWontConvertAbstractPlotTo(Class<?> destClass) {
-		AbstractPlot ap = new CustomAbstractPlot();
+	public void testWontConvertCustomPlotTo(Class<?> destClass) {
+		Plot ap = new CustomPlot();
 		assertFalse(convertService.supports(ap, destClass));
 		assertFalse(convertService.supports(ap, (Type) destClass));
 	}
@@ -90,7 +90,7 @@ public class PlotToImageConverterTest {
 
 	// -- Helper class --
 
-	class CustomAbstractPlot implements AbstractPlot {
+	class CustomPlot implements Plot {
 		@Override
 		public void setTitle(String title) {
 

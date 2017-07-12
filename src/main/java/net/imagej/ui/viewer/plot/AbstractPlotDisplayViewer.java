@@ -31,19 +31,19 @@
 
 package net.imagej.ui.viewer.plot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import net.imagej.ui.swing.viewer.plot.PlotDisplay;
 import net.imagej.ui.swing.viewer.plot.PlotDisplayViewer;
 import org.scijava.display.Display;
 import org.scijava.ui.viewer.AbstractDisplayViewer;
 
 /**
- * Implements the UI-independent elements of a {@link AbstractPlot} viewer.
+ * Implements the UI-independent elements of a {@link Plot} viewer.
  * 
  * @author Curtis Rueden
  */
 public abstract class AbstractPlotDisplayViewer extends
-		AbstractDisplayViewer<AbstractPlot> implements PlotDisplayViewer
+		AbstractDisplayViewer<Plot> implements net.imagej.ui.swing.viewer.plot.PlotDisplayViewer
 {
 
 	@Override

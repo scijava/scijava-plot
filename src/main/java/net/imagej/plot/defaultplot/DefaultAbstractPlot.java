@@ -31,17 +31,17 @@
 
 package net.imagej.plot.defaultplot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 
 import java.util.Objects;
 
 /**
- * An abstract class with default behavior for the {@link AbstractPlot} interface.
+ * An abstract class with default behavior for the {@link Plot} interface.
  *
  * @author Matthias Arzt
  */
 
-abstract class DefaultAbstractPlot implements AbstractPlot {
+abstract class DefaultAbstractPlot implements Plot {
 
 	private String title;
 
@@ -55,7 +55,7 @@ abstract class DefaultAbstractPlot implements AbstractPlot {
 		preferredHeight = 400;
 	}
 
-	// -- AbstractPlot methods --
+	// -- Plot methods --
 
 	@Override
 	public void setTitle(String title) {

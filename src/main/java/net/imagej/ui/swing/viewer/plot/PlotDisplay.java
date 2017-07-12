@@ -31,14 +31,14 @@
 
 package net.imagej.ui.swing.viewer.plot;
 
-import net.imagej.plot.AbstractPlot;
+import net.imagej.plot.Plot;
 import org.scijava.display.Display;
 
 /**
- * Interface for {@link AbstractPlot} {@link Display}s.
+ * Interface for {@link Plot} {@link Display}s.
  * 
  * @author Curtis Rueden
  */
-public interface PlotDisplay extends Display<AbstractPlot> {
+public interface PlotDisplay extends Display<Plot> {
 	// This interface intentionally left blank.
 }

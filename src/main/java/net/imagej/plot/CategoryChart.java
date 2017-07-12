@@ -40,7 +40,7 @@ import java.util.List;
  *
  * @author Matthias Arzt
  */
-public interface CategoryChart<C> extends AbstractPlot {
+public interface CategoryChart<C> extends Plot {
 
 	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
 
