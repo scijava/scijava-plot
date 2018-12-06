@@ -1,7 +1,7 @@
 package tableplugins;
 
-import net.imagej.table.Column;
-import net.imagej.table.Table;
+import org.scijava.table.Column;
+import org.scijava.table.Table;
 import org.apache.commons.math3.stat.inference.TTest;
 import org.scijava.ItemIO;
 import org.scijava.ItemVisibility;

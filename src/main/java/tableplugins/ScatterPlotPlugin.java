@@ -7,8 +7,8 @@ package tableplugins;/*
  */
 
 import net.imagej.plot.*;
-import net.imagej.table.Column;
-import net.imagej.table.Table;
+import org.scijava.table.Column;
+import org.scijava.table.Table;
 import org.scijava.ItemIO;
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;

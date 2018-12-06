@@ -1,6 +1,6 @@
 package tableplugins;
 
-import net.imagej.table.*;
+import org.scijava.table.*;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.apache.commons.math3.stat.descriptive.rank.Median;
 import org.scijava.ItemIO;

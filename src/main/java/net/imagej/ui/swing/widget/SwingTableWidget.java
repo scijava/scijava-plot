@@ -1,7 +1,7 @@
 package net.imagej.ui.swing.widget;
 
-import net.imagej.table.Table;
-import net.imagej.table.TableDisplay;
+import org.scijava.table.Table;
+import org.scijava.table.TableDisplay;
 import org.scijava.display.DisplayService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;

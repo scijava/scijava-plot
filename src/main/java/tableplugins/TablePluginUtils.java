@@ -1,7 +1,7 @@
 package tableplugins;
 
-import net.imagej.table.Column;
-import net.imagej.table.DoubleColumn;
+import org.scijava.table.Column;
+import org.scijava.table.DoubleColumn;
 
 import java.util.LinkedList;
 import java.util.List;
