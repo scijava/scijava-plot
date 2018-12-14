@@ -1,9 +1,9 @@
 package tableplugins;
 
-import net.imagej.plot.Plot;
-import net.imagej.plot.BoxSeries;
-import net.imagej.plot.CategoryChart;
-import net.imagej.plot.PlotService;
+import org.scijava.plot.Plot;
+import org.scijava.plot.BoxSeries;
+import org.scijava.plot.CategoryChart;
+import org.scijava.plot.PlotService;
 import org.scijava.table.Column;
 import org.scijava.table.Table;
 import org.scijava.ItemIO;
@@ -11,8 +11,8 @@ import org.scijava.ItemVisibility;
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
-import net.imagej.ui.swing.widget.MultipleChoices;
-import net.imagej.ui.swing.widget.MutableChoices;
+import org.scijava.ui.swing.widget.MultipleChoices;
+import org.scijava.ui.swing.widget.MutableChoices;
 
 import java.util.*;
 

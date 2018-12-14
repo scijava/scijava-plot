@@ -6,7 +6,12 @@ package tableplugins;/*
  *     http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-import net.imagej.plot.*;
+import org.scijava.plot.LineStyle;
+import org.scijava.plot.MarkerStyle;
+import org.scijava.plot.Plot;
+import org.scijava.plot.PlotService;
+import org.scijava.plot.XYPlot;
+import org.scijava.plot.XYSeries;
 import org.scijava.table.Column;
 import org.scijava.table.Table;
 import org.scijava.ItemIO;
@@ -14,7 +19,7 @@ import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.util.Colors;
-import net.imagej.ui.swing.widget.MutableChoices;
+import org.scijava.ui.swing.widget.MutableChoices;
 
 import java.util.ArrayList;
 import java.util.List;

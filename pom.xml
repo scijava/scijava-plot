@@ -9,17 +9,17 @@
 		<relativePath />
 	</parent>
 
-	<groupId>net.imagej</groupId>
-	<artifactId>imagej-plot-service</artifactId>
+	<groupId>org.scijava</groupId>
+	<artifactId>scijava-plot</artifactId>
 	<version>0.1.2-SNAPSHOT</version>
 
-	<name>ImageJ-Plot-Service</name>
-	<description>A service for displaying plots in ImageJ.</description>
-	<url>https://github.com/maarzt/imagej-plot-service</url>
+	<name>SciJava Plot</name>
+	<description>Plots for SciJava.</description>
+	<url>https://github.com/scijava/scijava-plot</url>
 	<inceptionYear>2017</inceptionYear>
 	<organization>
-		<name>ImageJ</name>
-		<url>https://imagej.net/</url>
+		<name>SciJava</name>
+		<url>http://www.scijava.org/</url>
 	</organization>
 
 	<licenses>
@@ -71,24 +71,24 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/maarzt/imagej-plot-service</connection>
-		<developerConnection>scm:git:git@github.com:maarzt/imagej-plot-service</developerConnection>
+		<connection>scm:git:git://github.com/scijava/scijava-plot</connection>
+		<developerConnection>scm:git:git@github.com:scijava/scijava-plot</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/maarzt/imagej-plot-service</url>
+		<url>https://github.com/scijava/scijava-plot</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/maarzt/imagej-plot-service/issues</url>
+		<url>https://github.com/scijava/scijava-plot/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>Travis CI</system>
-		<url>https://travis-ci.org/maarzt/imagej-plot-service</url>
+		<url>https://travis-ci.org/scijava/scijava-plot</url>
 	</ciManagement>
 
 	<properties>
-		<package-name>net.imagej.plotservice</package-name>
+		<package-name>org.scijava.plot</package-name>
 		<license.licenseName>bsd_2</license.licenseName>
 		<license.copyrightOwners>Max Planck Institute of Molecular Cell Biology and Genetics.</license.copyrightOwners>
 

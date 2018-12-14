@@ -8,7 +8,7 @@ import org.scijava.ItemVisibility;
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
-import net.imagej.ui.swing.widget.MutableChoices;
+import org.scijava.ui.swing.widget.MutableChoices;
 
 @Plugin(type = Command.class, menuPath="Table>Calculate t-Test")
 public class TTestPlugIn implements Command {
