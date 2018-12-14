@@ -42,8 +42,6 @@ import java.util.List;
  */
 public interface XYPlot extends Plot {
 
-	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
-
 	XYSeries addXYSeries();
 
 	NumberAxis xAxis();

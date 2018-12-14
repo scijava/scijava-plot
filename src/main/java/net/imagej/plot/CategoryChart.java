@@ -42,8 +42,6 @@ import java.util.List;
  */
 public interface CategoryChart<C> extends Plot {
 
-	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
-
 	Class<C> getCategoryType();
 
 	LineSeries<C> addLineSeries();

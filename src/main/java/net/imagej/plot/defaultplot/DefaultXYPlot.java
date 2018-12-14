@@ -60,11 +60,6 @@ class DefaultXYPlot extends AbstractPlot implements XYPlot {
 	// -- XYPlot methods --
 
 	@Override
-	public SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
-		return new DefaultSeriesStyle(color, lineStyle, markerStyle);
-	}
-
-	@Override
 	public XYSeries addXYSeries() {
 		XYSeries result = new DefaultXYSeries();
 		items.add(result);

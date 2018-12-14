@@ -33,11 +33,15 @@
 package net.imagej.plot.defaultplot;
 
 import net.imagej.plot.CategoryChart;
+import net.imagej.plot.LineStyle;
+import net.imagej.plot.MarkerStyle;
 import net.imagej.plot.PlotService;
+import net.imagej.plot.SeriesStyle;
 import net.imagej.plot.XYPlot;
 import org.scijava.plugin.Plugin;
 import org.scijava.service.AbstractService;
 import org.scijava.service.Service;
+import org.scijava.util.ColorRGB;
 
 /**
  * The default implementation of the {@link PlotService} interface.
@@ -49,7 +53,12 @@ import org.scijava.service.Service;
 public class DefaultPlotService extends AbstractService implements PlotService {
 
 	// -- PlotService methods --
-	
+
+	@Override
+	public SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
+		return new DefaultSeriesStyle(color, lineStyle, markerStyle);
+	}
+
 	@Override
 	public XYPlot newXYPlot() {
 		return new DefaultXYPlot();

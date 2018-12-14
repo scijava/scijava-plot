@@ -32,6 +32,7 @@
 package net.imagej.plot;
 
 import net.imagej.ImageJService;
+import org.scijava.util.ColorRGB;
 
 /**
  * An ImageJService that provides factory methods for supported {@link Plot}s,
@@ -40,6 +41,8 @@ import net.imagej.ImageJService;
  * @author Matthias Arzt
  */
 public interface PlotService extends ImageJService {
+
+	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
 
 	XYPlot newXYPlot();
 

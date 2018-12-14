@@ -32,7 +32,6 @@
 package net.imagej.plot.defaultplot;
 
 import net.imagej.plot.*;
-import org.scijava.util.ColorRGB;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -62,11 +61,6 @@ class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart<C> {
 	}
 
 	// -- CategoryChart methods --
-
-	@Override
-	public SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
-		return new DefaultSeriesStyle(color, lineStyle, markerStyle);
-	}
 
 	@Override
 	public Class<C> getCategoryType() {
