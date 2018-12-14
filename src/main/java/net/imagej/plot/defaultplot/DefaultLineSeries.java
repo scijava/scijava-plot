@@ -49,7 +49,7 @@ class DefaultLineSeries<C> extends DefaultCategorySeries<C> implements LineSerie
 		super();
 	}
 
-	// -- LineSerties methods --
+	// -- LineSeries methods --
 
 	@Override
 	public void setStyle(SeriesStyle style) {
