@@ -38,11 +38,11 @@ import java.util.Collection;
  *
  * @author Matthias Arzt
  */
-public interface CategoryChartItem<C> extends Labeled {
+public interface CategoryChartItem extends Labeled {
 
 	boolean getLegendVisible();
 
 	void setLegendVisible(boolean visible);
 
-	Collection<? extends C> getCategories();
+	Collection<Object> getCategories();
 }

@@ -41,7 +41,8 @@ import java.util.Objects;
  *
  * @author Matthias Arzt
  */
-class DefaultLineSeries<C> extends DefaultCategorySeries<C> implements LineSeries<C> {
+class DefaultLineSeries extends DefaultCategorySeries implements LineSeries
+{
 
 	private SeriesStyle style = DefaultSeriesStyle.emptySeriesStyle();
 

@@ -39,7 +39,7 @@ import org.scijava.util.ColorRGB;
  *
  * @author Matthias Arzt
  */
-class DefaultBarSeries<C> extends DefaultCategorySeries<C> implements BarSeries<C> {
+class DefaultBarSeries extends DefaultCategorySeries implements BarSeries {
 
 	private ColorRGB color = null;
 

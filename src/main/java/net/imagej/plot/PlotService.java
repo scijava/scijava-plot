@@ -46,6 +46,5 @@ public interface PlotService extends ImageJService {
 
 	XYPlot newXYPlot();
 
-	<C> CategoryChart<C> newCategoryChart(Class<C> categoryType);
-
+	CategoryChart newCategoryChart();
 }

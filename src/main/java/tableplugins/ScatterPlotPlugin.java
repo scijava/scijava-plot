@@ -60,7 +60,7 @@ public class ScatterPlotPlugin implements Command {
 		List<Double> ys = new ArrayList<>(yColumn.get());
 		XYSeries series = plot.addXYSeries();
 		series.setValues(xs,ys);
-		series.setStyle(plot.newSeriesStyle(Colors.RED, LineStyle.NONE, MarkerStyle.CIRCLE));
+		series.setStyle(plotService.newSeriesStyle(Colors.RED, LineStyle.NONE, MarkerStyle.CIRCLE));
 		plot.setTitle(chart_title);
 		plot.xAxis().setLabel(xLabel);
 		plot.yAxis().setLabel(yLabel);

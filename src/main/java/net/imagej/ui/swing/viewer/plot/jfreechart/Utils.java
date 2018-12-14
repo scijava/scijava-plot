@@ -93,19 +93,19 @@ class Utils {
 		return axis;
 	}
 
-	static class SortedLabelFactory<T> {
+	static class SortedLabelFactory {
 		private int n;
 		SortedLabelFactory() { n = 0; }
-		SortedLabel<T> newLabel(T label) { return new SortedLabel<>(n++, label); }
+		SortedLabel newLabel(Object label) { return new SortedLabel(n++, label); }
 	}
 
-	static class SortedLabel<T> implements Comparable<SortedLabel> {
-		SortedLabel(final int id, final T label) { this.label = Objects.requireNonNull(label); this.id = id; }
+	static class SortedLabel implements Comparable<SortedLabel> {
+		private final Object label;
+		private final int id;
+		SortedLabel(final int id, final Object label) { this.label = Objects.requireNonNull(label); this.id = id; }
 		@Override public String toString() { return label.toString(); }
 		@Override public int compareTo(SortedLabel o) { return Integer.compare(id, o.id); }
-		public T getLabel() { return label; }
-		private final T label;
-		private final int id;
+		public Object getLabel() { return label; }
 	}
 
 }

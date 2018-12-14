@@ -32,6 +32,7 @@
 package net.imagej.plot;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -44,42 +45,42 @@ class SortingCategoriesDemo extends ChartDemo {
 	public void run() {
 		showSortedCategoryChart(new AxisManipulator() {
 			@Override
-			void manipulate(CategoryAxis<String> axis) {
+			void manipulate(CategoryAxis axis) {
 				axis.setManualCategories(Arrays.asList("a","c","b"));
 				axis.setLabel("acb");
 			}
 		});
 		showSortedCategoryChart(new AxisManipulator() {
 			@Override
-			void manipulate(CategoryAxis<String> axis) {
+			void manipulate(CategoryAxis axis) {
 				axis.setManualCategories(Arrays.asList("a","g","c","b"));
 				axis.setLabel("agcb");
 			}
 		});
 		showSortedCategoryChart(new AxisManipulator() {
 			@Override
-			void manipulate(CategoryAxis<String> axis) {
+			void manipulate(CategoryAxis axis) {
 				axis.setManualCategories(Arrays.asList("d","c","a","b"));
-				axis.setOrder(String::compareTo);
+				axis.setOrder( (Comparator<String>) String::compareTo );
 				axis.setLabel("abcd");
 			}
 		});
 		showSortedCategoryChart(new AxisManipulator() {
 			@Override
-			void manipulate(CategoryAxis<String> axis) {
+			void manipulate(CategoryAxis axis) {
 				axis.setManualCategories(Arrays.asList());
-				axis.setOrder(String::compareTo);
+				axis.setOrder( (Comparator<String>) String::compareTo );
 				axis.setLabel("empty");
 			}
 		});
 	}
 
 	private static abstract class AxisManipulator {
-		abstract void manipulate(CategoryAxis<String> axis);
+		abstract void manipulate(CategoryAxis axis);
 	}
 
 	private void showSortedCategoryChart(AxisManipulator categoryAxisManipulator) {
-		CategoryChart<String> chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		categoryAxisManipulator.manipulate(chart.categoryAxis());
 
 		Map<String, Double> data = new TreeMap<>();
@@ -88,7 +89,7 @@ class SortingCategoriesDemo extends ChartDemo {
 		data.put("c", 3.0);
 		data.put("d", 4.0);
 
-		BarSeries<String> bars = chart.addBarSeries();
+		BarSeries bars = chart.addBarSeries();
 		bars.setValues(data);
 
 		ui.show(chart);

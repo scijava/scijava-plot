@@ -32,6 +32,7 @@
 package net.imagej.plot;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -42,24 +43,24 @@ class CategoryChartDemo extends ChartDemo{
 
 	public void run() {
 
-		CategoryChart<String> chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		chart.categoryAxis().setManualCategories(Arrays.asList("one wheel", "bicycle", "car"));
 
-		Map<String, Double> wheelsData = new TreeMap<>();
+		Map<String, Double> wheelsData = new HashMap<>();
 		wheelsData.put("one wheel", 1.0);
 		wheelsData.put("bicycle", 2.0);
 		wheelsData.put("car", 4.0);
 
-		LineSeries<String> lineSeries = chart.addLineSeries();
+		LineSeries lineSeries = chart.addLineSeries();
 		lineSeries.setLabel("wheels");
 		lineSeries.setValues(wheelsData);
 
-		Map<String, Double> speedData = new TreeMap<>();
+		Map<String, Double> speedData = new HashMap<>();
 		speedData.put("one wheel", 10.0);
 		speedData.put("bicycle", 30.0);
 		speedData.put("car", 200.0);
 
-		BarSeries<String> barSeries = chart.addBarSeries();
+		BarSeries barSeries = chart.addBarSeries();
 		barSeries.setLabel("speed");
 		barSeries.setValues(speedData);
 

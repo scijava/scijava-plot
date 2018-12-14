@@ -65,8 +65,8 @@ public class DefaultPlotService extends AbstractService implements PlotService {
 	}
 
 	@Override
-	public <C> CategoryChart<C> newCategoryChart(Class<C> categoryType) {
-		return new DefaultCategoryChart<C>(categoryType);
+	public CategoryChart newCategoryChart() {
+		return new DefaultCategoryChart();
 	}
 
 }

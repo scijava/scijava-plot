@@ -40,21 +40,19 @@ import java.util.List;
  *
  * @author Matthias Arzt
  */
-public interface CategoryChart<C> extends Plot {
+public interface CategoryChart extends Plot {
 
-	Class<C> getCategoryType();
+	LineSeries addLineSeries();
 
-	LineSeries<C> addLineSeries();
+	BarSeries addBarSeries();
 
-	BarSeries<C> addBarSeries();
-
-	BoxSeries<C> addBoxSeries();
+	BoxSeries addBoxSeries();
 
 	NumberAxis numberAxis();
 
-	CategoryAxis<C> categoryAxis();
+	CategoryAxis categoryAxis();
 
-	List<CategoryChartItem<C>> getItems();
+	List<CategoryChartItem> getItems();
 
 	void setTitle(String title);
 

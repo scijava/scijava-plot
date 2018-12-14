@@ -42,22 +42,22 @@ import java.util.*;
  *
  * @author Matthias Arzt
  */
-class DefaultCategoryAxis<C> extends AbstractLabeled implements CategoryAxis<C> {
+class DefaultCategoryAxis extends AbstractLabeled implements CategoryAxis {
 
-	private final CategoryChart<C> chart;
+	private final CategoryChart chart;
 
-	private List<? extends C> categories = null;
+	private List categories = null;
 
-	private Comparator<? super C> comparator = null;
+	private Comparator comparator = null;
 
-	DefaultCategoryAxis(CategoryChart<C> chart) {
+	DefaultCategoryAxis(CategoryChart chart) {
 		this.chart = chart;
 	}
 
 	// -- CategoryAxis methods --
 
 	@Override
-	public void setManualCategories(List<? extends C> categories) {
+	public void setManualCategories(List<?> categories) {
 		this.categories = Objects.requireNonNull(categories);
 	}
 
@@ -72,7 +72,7 @@ class DefaultCategoryAxis<C> extends AbstractLabeled implements CategoryAxis<C> 
 	}
 
 	@Override
-	public void setOrder(Comparator<? super C> comparator) {
+	public void setOrder(Comparator comparator) {
 		this.comparator = Objects.requireNonNull(comparator);
 	}
 
@@ -82,8 +82,8 @@ class DefaultCategoryAxis<C> extends AbstractLabeled implements CategoryAxis<C> 
 	}
 
 	@Override
-	public List<C> getCategories() {
-		List<C> result = getCategoriesDefaultOrder();
+	public List<Object> getCategories() {
+		List<Object> result = getCategoriesDefaultOrder();
 		if(comparator != null)
 			result.sort(comparator);
 		return result;
@@ -91,9 +91,9 @@ class DefaultCategoryAxis<C> extends AbstractLabeled implements CategoryAxis<C> 
 
 	// -- private helper methods
 
-	private List<C> getCategoriesDefaultOrder() {
+	private List<Object> getCategoriesDefaultOrder() {
 		if(categories == null) {
-			Set<C> allCategories = newEmptySetOfCategories();
+			Set<Object> allCategories = newEmptySetOfCategories();
 			for (CategoryChartItem item : chart.getItems())
 				allCategories.addAll(item.getCategories());
 			return new ArrayList<>(allCategories);
@@ -101,10 +101,7 @@ class DefaultCategoryAxis<C> extends AbstractLabeled implements CategoryAxis<C> 
 			return new ArrayList<>(categories); // Make copy to avoid the list passed to setManualCategories to be sorted.
 	}
 
-	private Set<C> newEmptySetOfCategories() {
-		if(Comparable.class.isAssignableFrom(chart.getCategoryType()))
-			return new TreeSet<>();
-		else
-			return new HashSet<>();
+	private Set<Object> newEmptySetOfCategories() {
+		return new HashSet<>();
 	}
 }

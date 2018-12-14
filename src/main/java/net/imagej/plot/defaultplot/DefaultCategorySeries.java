@@ -41,23 +41,23 @@ import java.util.Map;
  * @author Matthias Arzt
  */
 
-abstract class DefaultCategorySeries<C> extends AbstractChartItem {
+abstract class DefaultCategorySeries extends AbstractChartItem {
 
-	private Map<? extends C, Double> values = Collections.emptyMap();
+	private Map<?, Double> values = Collections.emptyMap();
 
 	DefaultCategorySeries() { }
 
-	public void setValues(Map<? extends C, Double> values) {
+	public void setValues(Map<?, Double> values) {
 		this.values = Collections.unmodifiableMap(values);
 	}
 
-	public Map<? extends C, Double> getValues() {
+	public Map<?, Double> getValues() {
 		return values;
 	}
 	
 	// -- CategoryChartItem methods --
 
-	public Collection<? extends C> getCategories() {
-		return values.keySet();
+	public Collection<Object> getCategories() {
+		return Collections.unmodifiableCollection( values.keySet() );
 	}
 }

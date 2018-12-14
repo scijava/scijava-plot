@@ -41,14 +41,14 @@ import java.util.*;
 class BoxPlotDemo extends ChartDemo{
 
 	public void run() {
-		CategoryChart<String> chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 
 		Map<String, Collection<Double>> randomData1 = new TreeMap<>();
 		randomData1.put("A", collectionOfRandomNumbers(10));
 		randomData1.put("B", collectionOfRandomNumbers(20));
 		randomData1.put("C", collectionOfRandomNumbers(30));
 
-		BoxSeries<String> boxSeries1 = chart.addBoxSeries();
+		BoxSeries boxSeries1 = chart.addBoxSeries();
 		boxSeries1.setLabel("boxes1");
 		boxSeries1.setValues(randomData1);
 		boxSeries1.setColor(Colors.CYAN);
@@ -58,7 +58,7 @@ class BoxPlotDemo extends ChartDemo{
 		randomData2.put("B", collectionOfRandomNumbers(20));
 		randomData2.put("C", collectionOfRandomNumbers(30));
 
-		BoxSeries<String> boxSeries2 = chart.addBoxSeries();
+		BoxSeries boxSeries2 = chart.addBoxSeries();
 		boxSeries2.setLabel("boxes2");
 		boxSeries2.setValues(randomData2);
 		boxSeries2.setColor(Colors.BLACK);

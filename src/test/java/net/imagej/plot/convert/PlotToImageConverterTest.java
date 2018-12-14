@@ -50,7 +50,7 @@ public class PlotToImageConverterTest {
 	}
 
 	public void testCanConvertCategoryChartTo(Class<?> destClass) {
-		CategoryChart<String> chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		assertTrue(convertService.supports(chart, destClass));
 		assertTrue(convertService.supports(chart, (Type) destClass));
 	}
@@ -64,7 +64,7 @@ public class PlotToImageConverterTest {
 	@Test
 	public void testConversionToImagePlus() {
 		// setup
-		CategoryChart chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		chart.setTitle("Hello World!");
 		chart.setPreferredSize(12,23);
 		// process
@@ -78,7 +78,7 @@ public class PlotToImageConverterTest {
 	@Test
 	public void testConversionToImg() {
 		// setup
-		CategoryChart chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		chart.setTitle("Hello World!");
 		chart.setPreferredSize(12,23);
 		// process

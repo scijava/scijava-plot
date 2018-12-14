@@ -59,7 +59,7 @@ class LineStyleDemo extends ChartDemo {
 		XYSeries series = plot.addXYSeries();
 		series.setLabel(lineStyle.toString());
 		series.setValues(Arrays.asList(0.0,1.0), Arrays.asList(y,y));
-		series.setStyle(plot.newSeriesStyle(Colors.BLACK, lineStyle, MarkerStyle.CIRCLE));
+		series.setStyle(plotService.newSeriesStyle(Colors.BLACK, lineStyle, MarkerStyle.CIRCLE));
 	}
 
 	public static void main(final String... args) {

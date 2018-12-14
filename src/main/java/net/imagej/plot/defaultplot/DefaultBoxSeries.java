@@ -43,23 +43,21 @@ import java.util.Map;
  *
  * @author Matthias Arzt
  */
-class DefaultBoxSeries<C> extends AbstractChartItem implements BoxSeries<C> {
+class DefaultBoxSeries extends AbstractChartItem implements BoxSeries {
 
 	private ColorRGB color = null;
 
-	private Map<C, Collection<Double>> values = Collections.emptyMap();
-
-	public DefaultBoxSeries() { }
+	private Map<?, Collection<Double>> values = Collections.emptyMap();
 
 	// -- BoxSeries methods --
 
 	@Override
-	public Map<C, Collection<Double>> getValues() {
+	public Map<?, Collection<Double>> getValues() {
 		return values;
 	}
 
 	@Override
-	public void setValues(Map<? extends C, ? extends Collection<Double>> values) {
+	public void setValues(Map<?, ? extends Collection<Double>> values) {
 		this.values = Collections.unmodifiableMap(values);
 	}
 
@@ -76,7 +74,7 @@ class DefaultBoxSeries<C> extends AbstractChartItem implements BoxSeries<C> {
 	// -- CategoryChartItem methods --
 
 	@Override
-	public Collection getCategories() {
-		return values.keySet();
+	public Collection<Object> getCategories() {
+		return Collections.unmodifiableCollection( values.keySet() );
 	}
 }

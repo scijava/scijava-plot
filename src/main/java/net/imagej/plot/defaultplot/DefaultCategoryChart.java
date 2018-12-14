@@ -31,55 +31,52 @@
 
 package net.imagej.plot.defaultplot;
 
-import net.imagej.plot.*;
+import net.imagej.plot.BarSeries;
+import net.imagej.plot.BoxSeries;
+import net.imagej.plot.CategoryAxis;
+import net.imagej.plot.CategoryChart;
+import net.imagej.plot.CategoryChartItem;
+import net.imagej.plot.LineSeries;
+import net.imagej.plot.NumberAxis;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Default implementation of {@link CategoryChart}.
  *
  * @author Matthias Arzt
  */
-class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart<C> {
-
-	private final Class<C> categoryType;
+class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart {
 
 	private final NumberAxis valueAxis;
 
-	private final CategoryAxis<C> categoryAxis;
+	private final CategoryAxis categoryAxis;
 
-	private final List<CategoryChartItem<C>> items;
+	private final List<CategoryChartItem> items;
 
-	DefaultCategoryChart(final Class<C> categoryType) {
-		this.categoryType = Objects.requireNonNull(categoryType);
+	DefaultCategoryChart() {
 		valueAxis = new DefaultNumberAxis();
-		categoryAxis = new DefaultCategoryAxis<>(this);
+		categoryAxis = new DefaultCategoryAxis(this);
 		items = new LinkedList<>();
 	}
 
 	// -- CategoryChart methods --
 
 	@Override
-	public Class<C> getCategoryType() {
-		return categoryType;
+	public LineSeries addLineSeries() {
+		return addItem(new DefaultLineSeries());
 	}
 
 	@Override
-	public LineSeries<C> addLineSeries() {
-		return addItem(new DefaultLineSeries<>());
+	public BarSeries addBarSeries() {
+		return addItem(new DefaultBarSeries());
 	}
 
 	@Override
-	public BarSeries<C> addBarSeries() {
-		return addItem(new DefaultBarSeries<>());
-	}
-
-	@Override
-	public BoxSeries<C> addBoxSeries() {
-		return addItem(new DefaultBoxSeries<C>());
+	public BoxSeries addBoxSeries() {
+		return addItem(new DefaultBoxSeries());
 	}
 
 	@Override
@@ -88,12 +85,12 @@ class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart<C> {
 	}
 
 	@Override
-	public CategoryAxis<C> categoryAxis() {
+	public CategoryAxis categoryAxis() {
 		return categoryAxis;
 	}
 
 	@Override
-	public List<CategoryChartItem<C>> getItems() {
+	public List<CategoryChartItem> getItems() {
 		return Collections.unmodifiableList(items);
 	}
 

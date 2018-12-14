@@ -56,7 +56,7 @@ class MarkerStyleDemo extends ChartDemo {
 		XYSeries series = plot.addXYSeries();
 		series.setLabel(markerStyle.toString());
 		series.setValues(Arrays.asList(0.0, 1.0), Arrays.asList(y,y));
-		series.setStyle(plot.newSeriesStyle(null, null, markerStyle));
+		series.setStyle(plotService.newSeriesStyle(null, null, markerStyle));
 	}
 
 	public static void main(final String... args) {

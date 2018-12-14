@@ -38,11 +38,11 @@ import java.util.Map;
  *
  * @author Matthias Arzt
  */
-public interface LineSeries<C> extends CategoryChartItem {
+public interface LineSeries extends CategoryChartItem {
 
-	Map<? extends C, Double> getValues();
+	Map<?, Double> getValues();
 
-	void setValues(Map<? extends C, Double> Values);
+	void setValues(Map<?, Double> Values);
 
 	SeriesStyle getStyle();
 

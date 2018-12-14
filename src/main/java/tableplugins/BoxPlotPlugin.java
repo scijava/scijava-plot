@@ -66,13 +66,13 @@ public class BoxPlotPlugin implements Command {
 	}
 
 	private void buildChartWithoutKeys() {
-		CategoryChart<String> chart = plotService.newCategoryChart(String.class);
+		CategoryChart chart = plotService.newCategoryChart();
 		chart.numberAxis().setAutoRange();
 		chart.categoryAxis().setLabel("Column");
 		Map<String, Collection<Double>>	data = new TreeMap<>();
 		for (Column<Double> valueColumn : valueColumns.get())
 			data.put(valueColumn.getHeader(), valueColumn);
-		BoxSeries<String> series = chart.addBoxSeries();
+		BoxSeries series = chart.addBoxSeries();
 		series.setLabel("data");
 		series.setLegendVisible(false);
 		series.setValues(data);
@@ -88,18 +88,18 @@ public class BoxPlotPlugin implements Command {
 	}
 
 
-	static private class ChartBuilderWithKey<K> {
+	static private class ChartBuilderWithKey {
 
 		final PlotService plotService;
 
-		private CategoryChart<K> chart;
+		private CategoryChart chart;
 
 		private ChartBuilderWithKey(PlotService plotService) {
 			this.plotService = plotService;
 		}
 
-		private CategoryChart<K> getChart(Column<K> keyColumn, Iterable<Column<Double>> valueColumns) {
-			chart = plotService.newCategoryChart(keyColumn.getType());
+		private CategoryChart getChart(Column<?> keyColumn, Iterable<Column<Double>> valueColumns) {
+			chart = plotService.newCategoryChart();
 			chart.numberAxis().setAutoRange();
 			chart.categoryAxis().setLabel(keyColumn.getHeader());
 			for (Column<Double> valueColumn : valueColumns)
@@ -107,16 +107,16 @@ public class BoxPlotPlugin implements Command {
 			return chart;
 		}
 
-		private void addColumn(Column<K> keyColumn, Column<Double> valueColumn) {
-			BoxSeries<K> series = chart.addBoxSeries();
+		private void addColumn(Column<?> keyColumn, Column<Double> valueColumn) {
+			BoxSeries series = chart.addBoxSeries();
 			series.setLabel(valueColumn.getHeader());
-			MyMultiMap<K, Double> map = new MyMultiMap<>(keyColumn, valueColumn);
+			MyMultiMap<Object, Double> map = new MyMultiMap<>(keyColumn, valueColumn);
 			series.setValues(map.toMap());
 		}
 
-		static private <K> CategoryChart<K> build(PlotService plotService,
-					Column<K> keyColumn, Iterable<Column<Double>> valueColumn) {
-			return new ChartBuilderWithKey<K>(plotService).getChart(keyColumn, valueColumn);
+		static private CategoryChart build(PlotService plotService,
+					Column<?> keyColumn, Iterable<Column<Double>> valueColumn) {
+			return new ChartBuilderWithKey(plotService).getChart(keyColumn, valueColumn);
 		}
 	}
 

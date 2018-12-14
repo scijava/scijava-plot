@@ -49,11 +49,11 @@ import static net.imagej.ui.swing.viewer.plot.jfreechart.Utils.*;
 /**
  * @author Matthias Arzt
  */
-class CategoryChartGenerator<C> {
+class CategoryChartGenerator {
 
-	private final CategoryChart<C> chart;
+	private final CategoryChart chart;
 
-	private final SortedLabelFactory<String> labelFactory = new SortedLabelFactory<>();
+	private final SortedLabelFactory labelFactory = new SortedLabelFactory();
 
 	private final CategoryPlot jfcPlot = new CategoryPlot();
 
@@ -63,23 +63,23 @@ class CategoryChartGenerator<C> {
 
 	private final BoxDataset boxData;
 
-	private CategoryChartGenerator(CategoryChart<C> chart) {
+	private CategoryChartGenerator(CategoryChart chart) {
 		this.chart = chart;
-		List<SortedLabel<C>> categoryList = setupCategoryList();
+		List<SortedLabel> categoryList = setupCategoryList();
 		lineData = new LineAndBarDataset(new LineAndShapeRenderer(), categoryList);
 		barData = new LineAndBarDataset(createFlatBarRenderer(), categoryList);
 		boxData = new BoxDataset(categoryList);
 	}
 
-	public static <C> JFreeChart run(CategoryChart<C> chart) {
-		return new CategoryChartGenerator<C>(chart).getJFreeChart();
+	public static JFreeChart run(CategoryChart chart) {
+		return new CategoryChartGenerator(chart).getJFreeChart();
 	}
 
-	private List<SortedLabel<C>> setupCategoryList() {
-		List<C> categories = chart.categoryAxis().getCategories();
-		List<SortedLabel<C>> categoryList = new ArrayList<>(categories.size());
-		SortedLabelFactory<C> categoryFactory = new SortedLabelFactory<>();
-		for(C category : categories)
+	private List<SortedLabel> setupCategoryList() {
+		List<?> categories = chart.categoryAxis().getCategories();
+		List<SortedLabel> categoryList = new ArrayList<>(categories.size());
+		SortedLabelFactory categoryFactory = new SortedLabelFactory();
+		for(Object category : categories)
 			categoryList.add(categoryFactory.newLabel(category));
 		return categoryList;
 	}
@@ -119,9 +119,9 @@ class CategoryChartGenerator<C> {
 
 		private final BoxAndWhiskerRenderer jfcRenderer;
 
-		private final List<SortedLabel<C>> categoryList;
+		private final List<SortedLabel> categoryList;
 
-		BoxDataset(List<SortedLabel<C>> categoryList) {
+		BoxDataset(List<SortedLabel> categoryList) {
 			jfcDataset = new DefaultBoxAndWhiskerCategoryDataset();
 			jfcRenderer = new BoxAndWhiskerRenderer();
 			jfcRenderer.setFillBox(false);
@@ -129,7 +129,7 @@ class CategoryChartGenerator<C> {
 			setCategories();
 		}
 
-		void addBoxSeries(BoxSeries<C> series) {
+		void addBoxSeries(BoxSeries series) {
 			SortedLabel uniqueLabel = labelFactory.newLabel(series.getLabel());
 			setSeriesData(uniqueLabel, series.getValues());
 			setSeriesVisibility(uniqueLabel, true, series.getLegendVisible());
@@ -139,13 +139,13 @@ class CategoryChartGenerator<C> {
 
 		private void setCategories() {
 			SortedLabel uniqueLabel = labelFactory.newLabel("dummy");
-			for(SortedLabel<C> category : categoryList)
+			for(SortedLabel category : categoryList)
 				jfcDataset.add(Collections.emptyList(), uniqueLabel, category);
 			setSeriesVisibility(uniqueLabel, false, false);
 		}
 
-		private void setSeriesData(SortedLabel uniqueLabel, Map<? extends C, ? extends Collection<Double>> data) {
-			for(SortedLabel<C> category : categoryList) {
+		private void setSeriesData(SortedLabel uniqueLabel, Map<?, ? extends Collection<Double>> data) {
+			for(SortedLabel category : categoryList) {
 				Collection<Double> value = data.get(category.getLabel());
 				if(value != null)
 					jfcDataset.add(new ArrayList<>(value), uniqueLabel, category);
@@ -184,9 +184,9 @@ class CategoryChartGenerator<C> {
 
 		private final AbstractCategoryItemRenderer jfcRenderer;
 
-		private final List<SortedLabel<C>> categoryList;
+		private final List<SortedLabel> categoryList;
 
-		LineAndBarDataset(AbstractCategoryItemRenderer renderer, List<SortedLabel<C>> categoryList) {
+		LineAndBarDataset(AbstractCategoryItemRenderer renderer, List<SortedLabel> categoryList) {
 			jfcDataset = new DefaultCategoryDataset();
 			jfcRenderer = renderer;
 			this.categoryList = categoryList;
@@ -195,19 +195,19 @@ class CategoryChartGenerator<C> {
 
 		private void setCategories() {
 			SortedLabel uniqueLabel = labelFactory.newLabel("dummy");
-			for(SortedLabel<C> category : categoryList)
+			for(SortedLabel category : categoryList)
 				jfcDataset.addValue(0.0, uniqueLabel, category);
 			setSeriesVisibility(uniqueLabel, false, false);
 		}
 
-		void addSeries(BarSeries<C> series) {
+		void addSeries(BarSeries series) {
 			SortedLabel uniqueLabel = labelFactory.newLabel(series.getLabel());
 			addSeriesData(uniqueLabel, series.getValues());
 			setSeriesColor(uniqueLabel, series.getColor());
 			setSeriesVisibility(uniqueLabel, true, series.getLegendVisible());
 		}
 
-		void addSeries(LineSeries<C> series) {
+		void addSeries(LineSeries series) {
 			SortedLabel uniqueLabel = labelFactory.newLabel(series.getLabel());
 			addSeriesData(uniqueLabel, series.getValues());
 			setSeriesStyle(uniqueLabel, series.getStyle());
@@ -222,8 +222,8 @@ class CategoryChartGenerator<C> {
 			jfcRenderer.setSeriesVisibleInLegend(index, legendVisible, false);
 		}
 
-		private void addSeriesData(SortedLabel uniqueLabel, Map<? extends C, Double> values) {
-			for(SortedLabel<C> category : categoryList) {
+		private void addSeriesData(SortedLabel uniqueLabel, Map<?, Double> values) {
+			for(SortedLabel category : categoryList) {
 				Double value = values.get(category.getLabel());
 				if(value != null)
 					jfcDataset.addValue(value, uniqueLabel, category);

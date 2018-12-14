@@ -41,11 +41,11 @@ import java.util.Map;
  *
  * @author Matthias Arzt
  */
-public interface BoxSeries<C> extends CategoryChartItem {
+public interface BoxSeries extends CategoryChartItem {
 
-	Map<? extends C, ? extends Collection<Double>> getValues();
+	Map<?, ? extends Collection<Double>> getValues();
 
-	void setValues(Map<? extends C, ? extends Collection<Double>> values);
+	void setValues(Map<?, ? extends Collection<Double>> values);
 
 	ColorRGB getColor();
 
