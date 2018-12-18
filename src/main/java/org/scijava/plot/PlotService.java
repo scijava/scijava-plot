@@ -31,7 +31,7 @@
 
 package org.scijava.plot;
 
-import net.imagej.ImageJService;
+import org.scijava.service.SciJavaService;
 import org.scijava.util.ColorRGB;
 
 /**
@@ -40,7 +40,8 @@ import org.scijava.util.ColorRGB;
  *
  * @author Matthias Arzt
  */
-public interface PlotService extends ImageJService {
+public interface PlotService extends SciJavaService
+{
 
 	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
 

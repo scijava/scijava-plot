@@ -31,7 +31,6 @@
 
 package org.scijava.plot.defaultplot;
 
-import net.imagej.plot.*;
 import org.scijava.plot.NumberAxis;
 import org.scijava.plot.XYPlot;
 import org.scijava.plot.XYPlotItem;

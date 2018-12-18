@@ -29,7 +29,7 @@
  * #L%
  */
 
-package org.scijava.ui.swing.viewer.plot;
+package org.scijava.ui.viewer.plot;
 
 import org.scijava.plot.Plot;
 import org.scijava.display.Display;

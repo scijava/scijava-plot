@@ -32,8 +32,6 @@
 package org.scijava.ui.viewer.plot;
 
 import org.scijava.plot.Plot;
-import org.scijava.ui.swing.viewer.plot.PlotDisplay;
-import org.scijava.ui.swing.viewer.plot.PlotDisplayViewer;
 import org.scijava.display.Display;
 import org.scijava.ui.viewer.AbstractDisplayViewer;
 

@@ -8,13 +8,13 @@
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -29,52 +29,23 @@
  * #L%
  */
 
-package org.scijava.plot;
+package org.scijava.ui.viewer.plot;
 
-import org.scijava.util.Colors;
-
-import java.util.*;
+import org.scijava.plot.Plot;
+import org.scijava.display.AbstractDisplay;
+import org.scijava.display.Display;
+import org.scijava.plugin.Plugin;
 
 /**
- * @author Matthias Arzt
+ * Default display for {@link Plot}s.
+ *
+ * @author Curtis Rueden
  */
-class BoxPlotDemo extends ChartDemo{
-
-	public void run() {
-		CategoryChart chart = plotService.newCategoryChart();
-
-		Map<String, Collection<Double>> randomData1 = new TreeMap<>();
-		randomData1.put("A", collectionOfRandomNumbers(10));
-		randomData1.put("B", collectionOfRandomNumbers(20));
-		randomData1.put("C", collectionOfRandomNumbers(30));
-
-		BoxSeries boxSeries1 = chart.addBoxSeries();
-		boxSeries1.setLabel("boxes1");
-		boxSeries1.setValues(randomData1);
-		boxSeries1.setColor(Colors.CYAN);
-
-		Map<String, Collection<Double>> randomData2 = new TreeMap<>();
-		randomData2.put("A", collectionOfRandomNumbers(10));
-		randomData2.put("B", collectionOfRandomNumbers(20));
-		randomData2.put("C", collectionOfRandomNumbers(30));
-
-		BoxSeries boxSeries2 = chart.addBoxSeries();
-		boxSeries2.setLabel("boxes2");
-		boxSeries2.setValues(randomData2);
-		boxSeries2.setColor(Colors.BLACK);
-
-		ui.show(chart);
-	}
-
-	private static Collection<Double> collectionOfRandomNumbers(int size) {
-		Random rand = new Random();
-		Vector<Double> result = new Vector<>(size);
-		for(int i = 0; i < size; i++)
-			result.add(rand.nextGaussian()*20);
-		return result;
-	}
-
-	public static void main(final String... args) {
-		new BoxPlotDemo().run();
+@Plugin(type = Display.class)
+public class DefaultPlotDisplay extends AbstractDisplay<Plot> implements
+		PlotDisplay
+{
+	public DefaultPlotDisplay() {
+		super(Plot.class);
 	}
 }

@@ -29,33 +29,20 @@
  * #L%
  */
 
-package org.scijava.ui.swing.viewer.plot.jfreechart;
+package org.scijava.ui.viewer.plot;
 
-import org.scijava.plot.XYPlot;
-import org.jfree.chart.JFreeChart;
-import org.scijava.Priority;
-import org.scijava.convert.AbstractConverter;
-import org.scijava.convert.Converter;
-import org.scijava.plugin.Plugin;
+import org.scijava.plot.Plot;
+import org.scijava.ui.viewer.DisplayPanel;
 
 /**
- * @author Matthias.Arzt
+ * This is a panel that can go inside a display window. It displays
+ * {@link Plot}s.
+ * 
+ * @author Curtis Rueden
  */
-@Plugin(type = Converter.class, priority = Priority.NORMAL_PRIORITY)
-public class XYPlotConverter extends AbstractConverter<XYPlot, JFreeChart> {
-	@SuppressWarnings("unchecked")
-	@Override
-	public <T> T convert(Object o, Class<T> aClass) {
-		return (T) XYPlotGenerator.run((XYPlot) o);
-	}
+public interface PlotDisplayPanel extends DisplayPanel {
 
 	@Override
-	public Class<JFreeChart> getOutputType() {
-		return JFreeChart.class;
-	}
+	PlotDisplay getDisplay();
 
-	@Override
-	public Class<XYPlot> getInputType() {
-		return XYPlot.class;
-	}
 }
