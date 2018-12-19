@@ -41,7 +41,7 @@ import org.scijava.util.ColorRGB;
  *
  * @author Matthias Arzt
  */
-class DefaultSeriesStyle implements SeriesStyle {
+public class DefaultSeriesStyle implements SeriesStyle {
 
 	private final ColorRGB color;
 
@@ -49,7 +49,7 @@ class DefaultSeriesStyle implements SeriesStyle {
 
 	private final LineStyle lineStyle;
 
-	DefaultSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
+	public DefaultSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
 		this.color = color;
 		this.lineStyle = lineStyle;
 		this.markerStyle = markerStyle;

@@ -48,7 +48,7 @@ import java.util.List;
  *
  * @author Matthias Arzt
  */
-class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart {
+public class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart {
 
 	private final NumberAxis valueAxis;
 
@@ -56,7 +56,7 @@ class DefaultCategoryChart<C> extends AbstractPlot implements CategoryChart {
 
 	private final List<CategoryChartItem> items;
 
-	DefaultCategoryChart() {
+	public DefaultCategoryChart() {
 		valueAxis = new DefaultNumberAxis();
 		categoryAxis = new DefaultCategoryAxis(this);
 		items = new LinkedList<>();
