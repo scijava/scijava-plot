@@ -52,6 +52,8 @@ public interface CategoryChart extends Plot {
 
 	List<CategoryChartItem> getItems();
 
+	List<Object> getCategories();
+
 	void setTitle(String title);
 
 	String getTitle();

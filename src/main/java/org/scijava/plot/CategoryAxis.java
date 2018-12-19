@@ -52,12 +52,14 @@ public interface CategoryAxis extends Labeled {
 
 	boolean hasManualCategories();
 
+	List<Object> getManualCategories();
+
 	/** Specify the order used to display the categories in a {@link CategoryChart}. */
-	void setOrder(Comparator<?> comparator);
+	<T> void setOrder(Comparator<T> comparator);
 
 	void clearOrder();
 
-	/** Returns the list of categories to be displayed in the {@link CategoryChart}. */
-	List<Object> getCategories();
+	boolean hasOrder();
 
+	Comparator<?> getOrder();
 }

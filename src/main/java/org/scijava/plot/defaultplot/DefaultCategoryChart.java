@@ -39,9 +39,13 @@ import org.scijava.plot.CategoryChartItem;
 import org.scijava.plot.LineSeries;
 import org.scijava.plot.NumberAxis;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Default implementation of {@link CategoryChart}.
@@ -58,7 +62,7 @@ public class DefaultCategoryChart<C> extends AbstractPlot implements CategoryCha
 
 	public DefaultCategoryChart() {
 		valueAxis = new DefaultNumberAxis();
-		categoryAxis = new DefaultCategoryAxis(this);
+		categoryAxis = new DefaultCategoryAxis();
 		items = new LinkedList<>();
 	}
 
@@ -92,6 +96,40 @@ public class DefaultCategoryChart<C> extends AbstractPlot implements CategoryCha
 	@Override
 	public List<CategoryChartItem> getItems() {
 		return Collections.unmodifiableList(items);
+	}
+
+	@Override
+	public List<Object> getCategories()
+	{
+		List< Object > categories = unsortedCategories();
+		return sortCategories( categories );
+
+	}
+
+	private List< Object > sortCategories( List< Object > categories )
+	{
+		if(categoryAxis.hasOrder())
+		{
+			if( ! ( categories instanceof ArrayList ) )
+				categories = new ArrayList<>( categories );
+			categories.sort( ( Comparator ) categoryAxis.getOrder() );
+		}
+		return categories;
+	}
+
+	private List< Object > unsortedCategories()
+	{
+		if(categoryAxis.hasManualCategories())
+		{
+			return categoryAxis.getManualCategories();
+		}
+		else
+		{
+			Set< Object > set = new HashSet<>();
+			for ( CategoryChartItem item : items )
+				set.addAll( item.getCategories() );
+			return new ArrayList<>( set );
+		}
 	}
 
 	// -- private helper methods --

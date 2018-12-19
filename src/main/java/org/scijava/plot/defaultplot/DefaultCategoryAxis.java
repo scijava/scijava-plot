@@ -45,15 +45,11 @@ import java.util.*;
 class DefaultCategoryAxis extends AbstractLabeled implements CategoryAxis
 {
 
-	private final CategoryChart chart;
-
 	private List categories = null;
 
 	private Comparator comparator = null;
 
-	DefaultCategoryAxis(CategoryChart chart) {
-		this.chart = chart;
-	}
+	DefaultCategoryAxis() { }
 
 	// -- CategoryAxis methods --
 
@@ -73,36 +69,30 @@ class DefaultCategoryAxis extends AbstractLabeled implements CategoryAxis
 	}
 
 	@Override
-	public void setOrder(Comparator comparator) {
+	public List< Object > getManualCategories()
+	{
+		return Collections.unmodifiableList( categories );
+	}
+
+	@Override
+	public <T> void setOrder(Comparator<T> comparator) {
 		this.comparator = Objects.requireNonNull(comparator);
 	}
 
 	@Override
 	public void clearOrder() {
-		this.comparator = null;
+		comparator = null;
 	}
 
 	@Override
-	public List<Object> getCategories() {
-		List<Object> result = getCategoriesDefaultOrder();
-		if(comparator != null)
-			result.sort(comparator);
-		return result;
+	public boolean hasOrder()
+	{
+		return comparator != null;
 	}
 
-	// -- private helper methods
-
-	private List<Object> getCategoriesDefaultOrder() {
-		if(categories == null) {
-			Set<Object> allCategories = newEmptySetOfCategories();
-			for (CategoryChartItem item : chart.getItems())
-				allCategories.addAll(item.getCategories());
-			return new ArrayList<>(allCategories);
-		} else
-			return new ArrayList<>(categories); // Make copy to avoid the list passed to setManualCategories to be sorted.
-	}
-
-	private Set<Object> newEmptySetOfCategories() {
-		return new HashSet<>();
+	@Override
+	public Comparator< ? > getOrder()
+	{
+		return comparator;
 	}
 }
