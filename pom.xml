@@ -19,7 +19,7 @@
 	<inceptionYear>2017</inceptionYear>
 	<organization>
 		<name>ImageJ</name>
-		<url>http://imagej.net/</url>
+		<url>https://imagej.net/</url>
 	</organization>
 
 	<licenses>
@@ -33,7 +33,7 @@
 		<developer>
 			<id>maarzt</id>
 			<name>Matthias Arzt</name>
-			<url>http://imagej.net/User:Maarzt</url>
+			<url>https://imagej.net/User:Maarzt</url>
 			<roles>
 				<role>founder</role>
 				<role>lead</role>
@@ -47,7 +47,7 @@
 		<developer>
 			<id>ctrueden</id>
 			<name>Curtis Rueden</name>
-			<url>http://imagej.net/User:Rueden</url>
+			<url>https://imagej.net/User:Rueden</url>
 			<roles>
 				<role>maintainer</role>
 			</roles>
