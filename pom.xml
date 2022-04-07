@@ -96,13 +96,6 @@
 		<releaseProfiles>sign,deploy-to-scijava</releaseProfiles>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>scijava.public</id>
-			<url>https://maven.scijava.org/content/groups/public</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.scijava</groupId>
