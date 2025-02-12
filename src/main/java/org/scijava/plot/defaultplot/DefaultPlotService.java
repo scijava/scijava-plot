@@ -53,8 +53,8 @@ public class DefaultPlotService extends AbstractService implements PlotService {
 	// -- PlotService methods --
 
 	@Override
-	public SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
-		return new DefaultSeriesStyle(color, lineStyle, markerStyle);
+	public SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle, double markerSize) {
+		return new DefaultSeriesStyle(color, lineStyle, markerStyle, markerSize);
 	}
 
 	@Override

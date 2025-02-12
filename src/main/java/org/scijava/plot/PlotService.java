@@ -41,7 +41,13 @@ import org.scijava.util.ColorRGB;
 public interface PlotService extends SciJavaService
 {
 
-	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle);
+	double DEFAULT_MARKER_SIZE = 3.0;
+
+	default SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
+		return newSeriesStyle(color, lineStyle, markerStyle, DEFAULT_MARKER_SIZE);
+	}
+
+	SeriesStyle newSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle, double markerSize);
 
 	XYPlot newXYPlot();
 

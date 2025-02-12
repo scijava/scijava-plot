@@ -42,16 +42,16 @@ import org.scijava.util.ColorRGB;
 public class DefaultSeriesStyle implements SeriesStyle {
 
 	private final ColorRGB color;
-
-	private final MarkerStyle markerStyle;
-
 	private final LineStyle lineStyle;
+	private final MarkerStyle markerStyle;
+    private final double markerSize;
 
-	public DefaultSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle) {
+	public DefaultSeriesStyle(ColorRGB color, LineStyle lineStyle, MarkerStyle markerStyle, double markerSize) {
 		this.color = color;
 		this.lineStyle = lineStyle;
 		this.markerStyle = markerStyle;
-	}
+        this.markerSize = markerSize;
+    }
 
 	// -- SeriesStype methods --
 
@@ -70,6 +70,10 @@ public class DefaultSeriesStyle implements SeriesStyle {
 		return markerStyle;
 	}
 
+	@Override
+	public double getMarkerSize() {
+		return markerSize;
+	}
 
 	// -- package-private helpers --
 
@@ -77,6 +81,7 @@ public class DefaultSeriesStyle implements SeriesStyle {
 		return EMPTY_SERIES_STYLE;
 	}
 
-	private static final DefaultSeriesStyle EMPTY_SERIES_STYLE = new DefaultSeriesStyle(null, null, null);
+	private static final DefaultSeriesStyle EMPTY_SERIES_STYLE = new DefaultSeriesStyle(null, null, null, 0);
+
 
 }

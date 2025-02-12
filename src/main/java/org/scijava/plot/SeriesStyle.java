@@ -45,4 +45,5 @@ public interface SeriesStyle {
 
 	MarkerStyle getMarkerStyle();
 
+    double getMarkerSize();
 }
