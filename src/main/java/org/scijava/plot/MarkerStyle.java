@@ -35,5 +35,14 @@ package org.scijava.plot;
  * @author Matthias Arzt
  */
 public enum MarkerStyle {
-	NONE, PLUS, X, STAR, SQUARE, FILLEDSQUARE, CIRCLE, FILLEDCIRCLE
+	NONE,
+	PLUS,
+	X,
+	STAR,
+	SQUARE,
+	FILLEDSQUARE,
+	CIRCLE,
+	FILLEDCIRCLE,
+	TRIANGLE,
+	FILLEDTRIANGLE,
 }
